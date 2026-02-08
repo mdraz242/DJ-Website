@@ -1,0 +1,1740 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DJ Runie | Electronic Music Artist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #8a2be2;
+            /* BlueViolet - Main Brand Color */
+            --primary-light: #f3e5ff;
+            /* Very light purple for backgrounds */
+            --primary-dark: #6a1bb2;
+            --secondary: #00d4ff;
+            /* Cyan - Accent */
+            --accent: #ff007f;
+            /* Magenta - Alert/Highlight */
+            --accent-light: #ffe5e0;
+
+            /* Light Theme Colors (Premium) */
+            --bg: #ffffff;
+            --bg-light: #f8f9fa;
+            --bg-section: #f0f2f5;
+            --bg-card: #ffffff;
+
+            /* Text Colors */
+            --text: #333333;
+            --text-light: #666666;
+            --text-dark: #1a1a1a;
+            /* Headings are dark in light mode */
+            --text-muted: #888888;
+
+            --border: #e0e0e0;
+            --shadow: 0 10px 40px rgba(138, 43, 226, 0.08);
+            --shadow-hover: 0 15px 30px rgba(138, 43, 226, 0.15);
+            --radius: 12px;
+            --gradient-main: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.3;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-title h2 {
+            font-size: 3rem;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 3px;
+            opacity: 0.8;
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 30px auto 0;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 20px 0;
+            transition: all 0.4s ease;
+            background-color: rgba(255, 255, 255, 0.85);
+            /* Light transparent background */
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        header.scrolled {
+            padding: 15px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            font-size: 2rem;
+            color: var(--text-dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .logo i {
+            margin-right: 12px;
+            color: var(--text-dark);
+            font-size: 1.8rem;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            width: auto;
+            height: auto;
+            border-radius: 0;
+            display: inline-block;
+        }
+
+        .logo:hover {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 40px;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 8px 0;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            background: var(--primary);
+            bottom: 0;
+            left: 0;
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-dark);
+            font-size: 1.6rem;
+            cursor: pointer;
+            z-index: 1001;
+            padding: 10px;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background-color: var(--bg);
+            /* Optional: Add a subtle background image or pattern here */
+            background-image: radial-gradient(circle at 10% 20%, rgba(138, 43, 226, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(0, 212, 255, 0.05) 0%, transparent 20%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(138, 43, 226, 0.15), transparent 70%);
+            top: -200px;
+            right: -200px;
+            z-index: 1;
+            filter: blur(60px);
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.1), transparent 70%);
+            bottom: -100px;
+            left: -100px;
+            z-index: 1;
+            filter: blur(60px);
+        }
+
+        .hero-content {
+            max-width: 700px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            margin-bottom: 25px;
+            line-height: 1.1;
+            font-weight: 800;
+            background: linear-gradient(to right, #333, #666);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+        }
+
+        .hero h1 span {
+            display: block;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.35rem;
+            margin-bottom: 40px;
+            color: var(--text);
+            max-width: 600px;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 18px 42px;
+            background: var(--gradient-main);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(138, 43, 226, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button i {
+            margin-left: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .cta-button:hover i {
+            transform: translateX(5px);
+        }
+
+        .hero-visual {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 45%;
+            max-width: 600px;
+            height: 70%;
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .vinyl-container {
+            position: relative;
+            width: 420px;
+            height: 420px;
+        }
+
+        .vinyl {
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, #f0f0f8 30%, #e0e0f0 70%);
+            border-radius: 50%;
+            position: relative;
+            animation: spin 25s linear infinite;
+            box-shadow: 0 25px 60px rgba(155, 135, 245, 0.15);
+            border: 15px solid white;
+        }
+
+        .vinyl::before {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(45deg, var(--accent), var(--primary));
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+        }
+
+        .vinyl::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: repeating-radial-gradient(circle at 50% 50%, transparent, transparent 12px, rgba(155, 135, 245, 0.05) 12px, rgba(155, 135, 245, 0.05) 14px);
+            border-radius: 50%;
+        }
+
+        .vinyl-label {
+            position: absolute;
+            width: 160px;
+            height: 160px;
+            background: white;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(155, 135, 245, 0.1);
+            z-index: 3;
+            border: 3px solid var(--primary-light);
+        }
+
+        .vinyl-label h3 {
+            font-size: 1.6rem;
+            margin-bottom: 5px;
+            color: var(--primary);
+        }
+
+        .vinyl-label p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 80px;
+        }
+
+        .about-img {
+            flex: 1;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.7s ease;
+        }
+
+        .about-img:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 2.4rem;
+            margin-bottom: 25px;
+            color: var(--text-dark);
+        }
+
+        .about-text p {
+            color: var(--text);
+            line-height: 1.9;
+            margin-bottom: 25px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 25px 20px;
+            flex: 1;
+            min-width: 140px;
+            background: var(--bg-light);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .stat-number {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background-color: var(--bg-section);
+        }
+
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            border-radius: var(--radius);
+            overflow: hidden;
+            position: relative;
+            height: 320px;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: all 0.4s ease;
+            border: 1px solid var(--border);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            padding: 30px;
+            color: white;
+        }
+
+        .gallery-overlay h4 {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+            color: white;
+        }
+
+        .gallery-overlay p {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        /* Music Section */
+        .music-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .music-player {
+            width: 100%;
+            max-width: 850px;
+            background: var(--bg);
+            border-radius: var(--radius);
+            padding: 45px;
+            box-shadow: var(--shadow);
+            margin-bottom: 60px;
+            border: 1px solid var(--border);
+        }
+
+        .track-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 35px;
+        }
+
+        .track-cover {
+            width: 140px;
+            height: 140px;
+            border-radius: 18px;
+            overflow: hidden;
+            margin-right: 30px;
+            box-shadow: 0 15px 30px rgba(155, 135, 245, 0.15);
+            border: 1px solid var(--border);
+        }
+
+        .track-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .track-details h3 {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        .track-details p {
+            color: var(--text-light);
+            font-size: 1.2rem;
+        }
+
+        .player-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .control-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-dark);
+            font-size: 1.6rem;
+            margin: 0 22px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: var(--bg-light);
+        }
+
+        .control-btn:hover {
+            color: var(--primary);
+            background: var(--primary-light);
+            transform: scale(1.1);
+        }
+
+        .play-btn {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            box-shadow: 0 15px 30px rgba(155, 135, 245, 0.25);
+            transition: all 0.3s ease;
+        }
+
+        .play-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 20px 40px rgba(155, 135, 245, 0.35);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--border);
+            border-radius: 4px;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            width: 30%;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            border-radius: 4px;
+        }
+
+        .tracks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            width: 100%;
+        }
+
+        .track-card {
+            background: var(--bg);
+            border-radius: var(--radius);
+            padding: 30px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .track-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .track-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .track-card p {
+            color: var(--text-light);
+            font-size: 1rem;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .track-card .play-icon {
+            color: var(--primary);
+            font-size: 1.5rem;
+            background: var(--primary-light);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .track-card:hover .play-icon {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .track-time {
+            font-size: 1rem;
+            color: var(--text-light);
+            font-weight: 500;
+            align-self: flex-end;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: flex;
+            gap: 70px;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-info h3 {
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            color: var(--text-dark);
+        }
+
+        .contact-info p {
+            color: var(--text);
+            margin-bottom: 40px;
+            line-height: 1.9;
+            font-size: 1.1rem;
+        }
+
+        .contact-details {
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: var(--bg-light);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow);
+        }
+
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 25px;
+            font-size: 1.5rem;
+            color: white;
+            box-shadow: 0 15px 30px rgba(155, 135, 245, 0.2);
+            flex-shrink: 0;
+        }
+
+        .contact-text h4 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+
+        .contact-text p {
+            color: var(--text-light);
+            margin-bottom: 0;
+            font-size: 1rem;
+        }
+
+        .contact-form {
+            flex: 1;
+            background: var(--bg);
+            border-radius: var(--radius);
+            padding: 45px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 20px;
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: white;
+            box-shadow: 0 10px 20px rgba(155, 135, 245, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--bg-section);
+            padding: 90px 0 50px;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        .footer-logo {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            font-size: 2.2rem;
+            color: var(--text-dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-logo i {
+            margin-right: 15px;
+            color: var(--primary);
+            font-size: 2.4rem;
+            background: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 20px rgba(155, 135, 245, 0.1);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--text);
+            font-size: 1.4rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(155, 135, 245, 0.1);
+            border: 1px solid var(--border);
+        }
+
+        .social-icon:hover {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(155, 135, 245, 0.2);
+        }
+
+        .copyright {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 1rem;
+            padding-top: 50px;
+            border-top: 1px solid var(--border);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1100px) {
+            .hero h1 {
+                font-size: 3.6rem;
+            }
+
+            .vinyl-container {
+                width: 360px;
+                height: 360px;
+            }
+
+            .about-content {
+                gap: 50px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero {
+                padding-top: 120px;
+                height: auto;
+                min-height: 100vh;
+                text-align: center;
+            }
+
+            .hero-content {
+                max-width: 100%;
+            }
+
+            .hero-visual {
+                position: relative;
+                width: 100%;
+                max-width: 500px;
+                margin: 60px auto 0;
+                transform: none;
+                top: 0;
+                height: 420px;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .contact-container {
+                flex-direction: column;
+                gap: 50px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 300px;
+                height: 100vh;
+                background-color: white;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 120px 40px 40px;
+                transition: right 0.5s ease;
+                box-shadow: -10px 0 40px rgba(155, 135, 245, 0.1);
+                z-index: 1000;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links li {
+                margin: 0 0 25px 0;
+                width: 100%;
+            }
+
+            .nav-links a {
+                font-size: 1.2rem;
+                padding: 12px 0;
+                display: block;
+                width: 100%;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero p {
+                font-size: 1.15rem;
+            }
+
+            .section-title h2 {
+                font-size: 2.4rem;
+            }
+
+            .stats {
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .stat-item {
+                min-width: 130px;
+                padding: 20px 15px;
+            }
+
+            .music-player {
+                padding: 35px;
+            }
+
+            .track-info {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .track-cover {
+                margin-right: 0;
+                margin-bottom: 25px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .vinyl-container {
+                width: 300px;
+                height: 300px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .tracks-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header & Navigation -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="#" class="logo"><i class="fas fa-music"></i> DJ RUNIE</a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#music">Music</a></li>
+                <li><a href="#merch">Store</a></li>
+                <li><a href="#media">Media</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>DJ RUNIE <span>OFFICIAL</span></h1>
+                <p>Experience the pulse of the underground. Melodic Techno, Progressive House, and Atmospheric
+                    Soundscapes.</p>
+                <div class="hero-buttons">
+                    <a href="#events" class="cta-button">Bookings / Events <i class="fas fa-calendar-alt"></i></a>
+                    <a href="#music" class="cta-button"
+                        style="margin-left: 15px; background: transparent; border: 2px solid var(--secondary); box-shadow: none;">Latest
+                        Mixes <i class="fas fa-play"></i></a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="vinyl-container">
+                    <div class="vinyl">
+                        <div class="vinyl-label">
+                            <h3>RUNIE</h3>
+                            <p>EST. 2024</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About DJ Runie</h2>
+                <p>Creating immersive sonic experiences that connect people through rhythm and melody.</p>
+            </div>
+            <div class="about-content">
+                <div class="about-img">
+                    <!-- Using one of the provided WhatsApp images as a placeholder -->
+                    <img src="./images/WhatsApp Image 2026-01-29 at 3.52.32 PM.jpeg" alt="DJ Runie performing">
+                </div>
+                <div class="about-text">
+                    <h3>Crafting Emotional Soundscapes</h3>
+                    <p>With a career spanning over a decade, DJ Runie has evolved from underground clubs to
+                        international festival stages. Her signature sound combines ethereal melodies with driving
+                        rhythms, creating emotional journeys that resonate deeply with audiences.</p>
+                    <p>Known for her seamless mixing and intuitive track selection, Runie has performed at premier
+                        venues and festivals across the globe, sharing the stage with industry icons while developing
+                        her unique sonic identity.</p>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">Shows</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">2.5M+</div>
+                            <div class="stat-label">Streams</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">60+</div>
+                            <div class="stat-label">Releases</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">35+</div>
+                            <div class="stat-label">Countries</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Events Section -->
+    <section id="events" style="background: var(--bg-section);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Upcoming Events</h2>
+                <p>Catch DJ Runie live at these upcoming venues and festivals.</p>
+            </div>
+            <div class="events-list">
+                <!-- Event Item 1 -->
+                <div class="event-item">
+                    <div class="event-date">
+                        <span class="day">15</span>
+                        <span class="month">AUG</span>
+                    </div>
+                    <div class="event-details">
+                        <h3>Neon Horizon Festival</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Miami, FL • Main Stage</p>
+                    </div>
+                    <a href="#" class="btn-ticket">Tickets</a>
+                </div>
+                <!-- Event Item 2 -->
+                <div class="event-item">
+                    <div class="event-date">
+                        <span class="day">22</span>
+                        <span class="month">SEP</span>
+                    </div>
+                    <div class="event-details">
+                        <h3>Warehouse Project</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Manchester, UK • Depot Mayfield</p>
+                    </div>
+                    <a href="#" class="btn-ticket">Sold Out</a>
+                </div>
+                <!-- Event Item 3 -->
+                <div class="event-item">
+                    <div class="event-date">
+                        <span class="day">05</span>
+                        <span class="month">OCT</span>
+                    </div>
+                    <div class="event-details">
+                        <h3>Underground Tokyo</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Tokyo, Japan • Womb</p>
+                    </div>
+                    <a href="#" class="btn-ticket">Tickets</a>
+                </div>
+            </div>
+        </div>
+        <style>
+            .events-list {
+                max-width: 900px;
+                margin: 0 auto;
+            }
+
+            .event-item {
+                display: flex;
+                align-items: center;
+                background: var(--bg-card);
+                padding: 25px;
+                margin-bottom: 20px;
+                border-radius: var(--radius);
+                border: 1px solid var(--border);
+                transition: transform 0.3s ease;
+            }
+
+            .event-item:hover {
+                transform: translateX(10px);
+                border-color: var(--primary);
+            }
+
+            .event-date {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                background: var(--bg-light);
+                padding: 15px;
+                border-radius: 10px;
+                min-width: 80px;
+                margin-right: 30px;
+                border: 1px solid var(--border);
+            }
+
+            .event-date .day {
+                font-size: 1.8rem;
+                font-weight: 700;
+                color: var(--primary);
+                line-height: 1;
+            }
+
+            .event-date .month {
+                font-size: 0.9rem;
+                font-weight: 600;
+                color: var(--text-light);
+                margin-top: 5px;
+            }
+
+            .event-details {
+                flex-grow: 1;
+            }
+
+            .event-details h3 {
+                font-size: 1.4rem;
+                margin-bottom: 5px;
+                color: var(--text-dark);
+            }
+
+            .event-details p {
+                font-size: 1rem;
+                color: var(--text-muted);
+                margin: 0;
+            }
+
+            .btn-ticket {
+                background: transparent;
+                border: 2px solid var(--primary);
+                color: var(--text-dark);
+                padding: 10px 25px;
+                border-radius: 30px;
+                text-decoration: none;
+                font-weight: 600;
+                transition: all 0.3s ease;
+            }
+
+            .btn-ticket:hover {
+                background: var(--primary);
+                color: white;
+            }
+
+            @media (max-width: 768px) {
+                .event-item {
+                    flex-direction: column;
+                    text-align: center;
+                    padding: 30px 20px;
+                }
+
+                .event-date {
+                    margin-right: 0;
+                    margin-bottom: 20px;
+                }
+
+                .event-details {
+                    margin-bottom: 25px;
+                }
+            }
+        </style>
+    </section>
+
+    <!-- Music Section -->
+    <section id="music">
+        <div class="container">
+            <div class="section-title">
+                <h2>Latest Releases</h2>
+                <p>Stream the newest tracks and classic favorites from DJ Runie.</p>
+            </div>
+            <div class="music-container">
+                <div class="music-player">
+                    <div class="track-info">
+                        <div class="track-cover">
+                            <!-- Using one of the provided WhatsApp images as a placeholder -->
+                            <img src="./images/WhatsApp Image 2026-01-29 at 3.52.22 PM.jpeg"
+                                alt="Atmospheric Beats Album">
+                        </div>
+                        <div class="track-details">
+                            <h3>Atmospheric Beats</h3>
+                            <p>DJ Runie • Progressive House • 2023</p>
+                        </div>
+                    </div>
+                    <div class="player-controls">
+                        <button class="control-btn"><i class="fas fa-step-backward"></i></button>
+                        <button class="control-btn play-btn"><i class="fas fa-play"></i></button>
+                        <button class="control-btn"><i class="fas fa-step-forward"></i></button>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress"></div>
+                    </div>
+                </div>
+
+                <div class="tracks-grid">
+                    <div class="track-card">
+                        <h4>Ethereal Echoes <i class="fas fa-play play-icon"></i></h4>
+                        <p>Dreamy melodic house with atmospheric textures and soothing vocals</p>
+                        <span class="track-time">6:18</span>
+                    </div>
+                    <div class="track-card">
+                        <h4>Midnight Pulse <i class="fas fa-play play-icon"></i></h4>
+                        <p>Driving progressive beats with hypnotic rhythms and deep basslines</p>
+                        <span class="track-time">5:42</span>
+                    </div>
+                    <div class="track-card">
+                        <h4>Solar Dreams <i class="fas fa-play play-icon"></i></h4>
+                        <p>Uplifting melodic techno with euphoric breakdowns and energetic drops</p>
+                        <span class="track-time">7:05</span>
+                    </div>
+                    <div class="track-card">
+                        <h4>Ocean Breeze <i class="fas fa-play play-icon"></i></h4>
+                        <p>Chill house with organic elements and evolving atmospheric textures</p>
+                        <span class="track-time">5:55</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </section>
+
+    <!-- Merchandise Section -->
+    <section id="merch" style="background: var(--bg-section);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Official Merch</h2>
+                <p>Limited edition apparel and accessories.</p>
+            </div>
+            <div class="merch-grid">
+                <!-- Merch Item 1 -->
+                <div class="merch-item">
+                    <div class="merch-img">
+                        <div class="placeholder-img"
+                            style="height: 300px; background: #222; display: flex; align-items: center; justify-content: center; color: #555;">
+                            T-SHIRT IMAGE</div>
+                    </div>
+                    <div class="merch-info">
+                        <h4>Runie Signature Tee</h4>
+                        <p class="price">$35.00</p>
+                        <a href="https://wa.me/15559876543?text=I'm%20interested%20in%20the%20Runie%20Signature%20Tee"
+                            target="_blank" class="buy-btn"><i class="fab fa-whatsapp"></i> Buy on WhatsApp</a>
+                    </div>
+                </div>
+                <!-- Merch Item 2 -->
+                <div class="merch-item">
+                    <div class="merch-img">
+                        <div class="placeholder-img"
+                            style="height: 300px; background: #222; display: flex; align-items: center; justify-content: center; color: #555;">
+                            HOODIE IMAGE</div>
+                    </div>
+                    <div class="merch-info">
+                        <h4>Midnight Hoodie</h4>
+                        <p class="price">$65.00</p>
+                        <a href="https://wa.me/15559876543?text=I'm%20interested%20in%20the%20Midnight%20Hoodie"
+                            target="_blank" class="buy-btn"><i class="fab fa-whatsapp"></i> Buy on WhatsApp</a>
+                    </div>
+                </div>
+                <!-- Merch Item 3 -->
+                <div class="merch-item">
+                    <div class="merch-img">
+                        <div class="placeholder-img"
+                            style="height: 300px; background: #222; display: flex; align-items: center; justify-content: center; color: #555;">
+                            CAP IMAGE</div>
+                    </div>
+                    <div class="merch-info">
+                        <h4>Logo Snapback</h4>
+                        <p class="price">$25.00</p>
+                        <a href="https://wa.me/15559876543?text=I'm%20interested%20in%20the%20Logo%20Snapback"
+                            target="_blank" class="buy-btn"><i class="fab fa-whatsapp"></i> Buy on WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <style>
+            .merch-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 30px;
+            }
+
+            .merch-item {
+                background: var(--bg-card);
+                border-radius: var(--radius);
+                overflow: hidden;
+                border: 1px solid var(--border);
+                transition: all 0.3s ease;
+            }
+
+            .merch-item:hover {
+                transform: translateY(-8px);
+                box-shadow: var(--shadow-hover);
+            }
+
+            .merch-info {
+                padding: 20px;
+                text-align: center;
+            }
+
+            .merch-info h4 {
+                font-size: 1.2rem;
+                margin-bottom: 10px;
+            }
+
+            .merch-info .price {
+                font-size: 1.1rem;
+                color: var(--primary);
+                font-weight: 700;
+                margin-bottom: 15px;
+            }
+
+            .buy-btn {
+                display: inline-block;
+                background: #25D366;
+                /* WhatsApp Green */
+                color: white;
+                padding: 10px 20px;
+                border-radius: 25px;
+                text-decoration: none;
+                font-weight: 600;
+                transition: all 0.3s ease;
+            }
+
+            .buy-btn:hover {
+                background: #20bd5a;
+                transform: scale(1.05);
+            }
+
+            @media (max-width: 576px) {
+                .merch-grid {
+                    grid-template-columns: 1fr;
+                    gap: 20px;
+                }
+            }
+        </style>
+    </section>
+
+    <!-- Media Section (Replaced Gallery) -->
+    <section id="media">
+        <div class="container">
+            <div class="section-title">
+                <h2>Media Gallery</h2>
+                <p>Highlights from recent shows and productions.</p>
+            </div>
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <img src="./images/WhatsApp Image 2026-01-29 at 3.52.23 PM (1).jpeg" alt="Event Photo 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="./images/WhatsApp Image 2026-01-29 at 3.52.24 PM (1).jpeg" alt="Event Photo 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="./images/WhatsApp Image 2026-01-29 at 3.52.28 PM.jpeg" alt="Event Photo 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="./images/WhatsApp Image 2026-01-29 at 3.52.31 PM (2).jpeg" alt="Event Photo 4">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" style="background: var(--bg-section);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p>Book DJ Runie for your next event.</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Booking & Inquiries</h3>
+                    <p>For festival bookings, club nights, and private events.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <p>hello@djrunie.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>WhatsApp</h4>
+                                <p>+1 (555) 987-6543</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-instagram"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Socials</h4>
+                                <p>@djrunie</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Simple Contact Form (Can be linked to email JS service) -->
+                <div class="contact-form">
+                    <form id="bookingForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" required placeholder="Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" rows="4" placeholder="Message..."></textarea>
+                        </div>
+                        <button type="submit" class="cta-button" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <a href="#" class="footer-logo"><i class="fas fa-music"></i> DJ RUNIE</a>
+                <div class="social-links">
+                    <a href="#" class="social-icon"><i class="fab fa-spotify"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-soundcloud"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-apple"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 DJ Runie. All rights reserved. | Crafted with <i class="fas fa-heart"
+                        style="color: var(--accent);"></i> for music lovers everywhere</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active')
+                ? '<i class="fas fa-times"></i>'
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Close mobile menu if open
+                    navLinks.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        const bookingForm = document.getElementById('bookingForm');
+
+        bookingForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+
+            // Show success message
+            alert(`Thank you ${name}! Your booking request has been sent. We'll contact you at ${email} within 48 hours.`);
+
+            // Reset form
+            bookingForm.reset();
+        });
+
+        // Play button functionality
+        const playButtons = document.querySelectorAll('.play-btn, .play-icon');
+
+        playButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const isPlaying = this.classList.contains('playing');
+
+                if (isPlaying) {
+                    if (this.classList.contains('play-btn')) {
+                        this.innerHTML = '<i class="fas fa-play"></i>';
+                    } else {
+                        this.classList.remove('fa-pause');
+                        this.classList.add('fa-play');
+                    }
+                    this.classList.remove('playing');
+                } else {
+                    if (this.classList.contains('play-btn')) {
+                        this.innerHTML = '<i class="fas fa-pause"></i>';
+                    } else {
+                        this.classList.remove('fa-play');
+                        this.classList.add('fa-pause');
+                    }
+                    this.classList.add('playing');
+                }
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target) && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+
+        // Add animation to stats on scroll
+        const observerOptions = {
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statNumbers = entry.target.querySelectorAll('.stat-number');
+                    statNumbers.forEach(stat => {
+                        const finalValue = parseInt(stat.textContent);
+                        let currentValue = 0;
+                        const increment = finalValue / 50;
+                        const timer = setInterval(() => {
+                            currentValue += increment;
+                            if (currentValue >= finalValue) {
+                                stat.textContent = finalValue + (stat.textContent.includes('M') ? 'M+' : '+');
+                                clearInterval(timer);
+                            } else {
+                                stat.textContent = Math.floor(currentValue) + (stat.textContent.includes('M') ? 'M+' : '+');
+                            }
+                        }, 30);
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        const statsSection = document.querySelector('.stats');
+        if (statsSection) {
+            observer.observe(statsSection);
+        }
+    </script>
+</body>
+
+</html>
